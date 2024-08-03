@@ -10,16 +10,6 @@ class FadeAnimation extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
-    // final tween = MultiTrackTween([
-    //   Track('opacity').add(Duration(milliseconds: 500), 
-    //     Tween(begin: 0.0, end: 1.0)
-    //   ),
-    //   Track('translateX').add(Duration(milliseconds: 500), 
-    //     Tween(begin: 120.0, end: 0.0),
-    //     curve: Curves.easeOut
-    //   )
-    // ]);
-
     final tween = MovieTween()
       ..tween('opacity', Tween(begin: 0.0, end: 1.0), duration: Duration(milliseconds: 500))
       ..tween('translateX', Tween(begin: 120.0, end: 0.0), duration: Duration(milliseconds: 500), curve: Curves.easeOut);
@@ -41,36 +31,3 @@ class FadeAnimation extends StatelessWidget {
     );
   }
 }
-
-
-// class AnimatedWidget extends StatelessWidget {
-//   final double delay;
-//   final Widget child;
-
-//   AnimatedWidget({required this.delay, required this.child});
-
-//   @override
-//   Widget build(BuildContext context) {
-//     final tween = MovieTween()
-//       ..tween('opacity', Tween(begin: 0.0, end: 1.0), duration: Duration(milliseconds: 500))
-//       ..tween('translateX', Tween(begin: 120.0, end: 0.0), duration: Duration(milliseconds: 500), curve: Curves.easeOut);
-
-//     return PlayAnimationBuilder<Movie>(
-//       tween: tween,
-//       duration: tween.duration,
-//       delay: Duration(milliseconds: (500 * delay).round()),
-//       builder: (context, value, child) {
-//         return Opacity(
-//           opacity: value.get('opacity'),
-//           child: Transform.translate(
-//             offset: Offset(value.get('translateX'), 0),
-//             child: child,
-//           ),
-//         );
-//       },
-//       child: child,
-//     );
-//   }
-// }
-
-// enum AnimationProps { opacity, translateX }
